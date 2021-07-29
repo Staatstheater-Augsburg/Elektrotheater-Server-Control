@@ -1,0 +1,10 @@
+[Unit]
+Description=VR Theater Server Control
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/vr-theater-server-control
+ExecStart=/opt/vr-theater-server-control/venv/bin/python /opt/vr-theater-server-control/app.py
+
+[Install]
+WantedBy=multi-user.target

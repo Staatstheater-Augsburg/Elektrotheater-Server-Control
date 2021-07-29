@@ -1,0 +1,6 @@
+[submodule "static/vendor/--branch"]
+	path = static/vendor/--branch
+	url = https://github.com/jgthms/bulma.git
+[submodule "static/vendor/bulma-0.9.3"]
+	path = static/vendor/bulma-0.9.3
+	url = https://github.com/jgthms/bulma.git

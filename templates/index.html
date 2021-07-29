@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="has-background-light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Theater Server Control</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <section id="app" class="section has-background-turquois is-flex" style="max-height: 100vh;">
+        <div class="container is-flex is-flex-direction-column">
+
+            <h1 class="title">VR Theater Server</h1>
+
+            <div class="box is-radiusless mb-0">
+                <div class="control">
+                    <div class="tags has-addons">
+                        <span class="tag is-medium is-dark">Status</span>
+                        <span class="tag is-medium is-success" v-if="status.isRunning">running</span>
+                        <span class="tag is-medium is-danger" v-else>stopped</span>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button v-on:click="start()" class="button">
+                            <span>Start</span>
+                        </button>
+                    </div>
+                    <div class="field has-addons">
+                        <div class="control">
+                            <button v-on:click="stop()" class="button is-light">
+                                <span>Stop</span>
+                            </button>
+                        </div>
+                        <div class="control">
+                            <button v-on:click="restart()" class="button is-light">
+                                <span>Restart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre id="log" class="box is-radiusless is-flex-shrink-1 is-size-7 has-background-grey-lighter"
+                v-show="status.isRunning">
+                [[log]]
+            </pre>
+
+            <div class="field is-grouped" v-show="status.isRunning">
+
+                <div class="control">
+                    <label class="checkbox">
+                        <input type="checkbox" v-model="autoScroll">
+                        Tail
+                    </label>
+                </div>
+
+                <div class="control">
+                    <button class="button" style="width: min-content;"
+                        onclick="window.open('{{ url_for('log') }}')">Show raw log file</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% if environment == "production" %}
+    <script src="{{ url_for('static', filename='vendor/vue-2.6.14/vue.min.js') }}"></script>
+    {% else %}
+    <script src="{{ url_for('static', filename='vendor/vue-2.6.14/vue.js') }}"></script>
+    {% endif %}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

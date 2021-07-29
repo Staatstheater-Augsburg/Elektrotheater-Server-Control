@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// General elements
+// -----------------------------------------------------------------------------
+
+html {
+    scroll-behavior: smooth;
+    // hyphens: auto;
+    // -webkit-hyphens: auto;
+}
+
+:focus {
+    outline: none;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column;
+}
+
+@include mobile {
+    .container {
+        max-width: 100%;
+    }
+}
