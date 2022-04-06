@@ -1,5 +1,5 @@
 [Unit]
-Description=VR Theater Server Control
+Description=Elektrotheater Server Control
 
 [Service]
 Type=simple
