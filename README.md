@@ -3,7 +3,7 @@
 
 ## Clone repository
 
-    git clone --recursive https://github.com/Staatstheater-Augsburg/VR-Hub-Server-Control.git
+    git clone --recursive https://github.com/Staatstheater-Augsburg/Elektrotheater-Server-Control.git
 
 
 ## Create a Python environment
